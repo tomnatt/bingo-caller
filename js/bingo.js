@@ -1,4 +1,3 @@
-var numbers = 0;
 var num_data = "";
 var timer = 500;
 
@@ -7,7 +6,6 @@ $(function() {
     $.getJSON("calls.json", function(data) {
 
         // pull together the info
-        numbers = data["numbers"].length;
         num_data = data;
 
         // make the calls
@@ -17,16 +15,33 @@ $(function() {
 
     function makeCall() {
 
-        // random number (0-limit)
-        var c = Math.floor(Math.random() * numbers);
-        var call = num_data["numbers"][c];
+        console.log(num_data["numbers"].length);
 
-        // random call
-        var number = call["number"];
-        var w = Math.floor(Math.random() * call["names"].length);
-        var words = call["names"][w];
+        var l = num_data["numbers"].length;
 
-        console.log(c + ": " + number + ", " + words);
+        if (l > 0) {
+
+            // random number (0-limit)
+            var c = Math.floor(Math.random() * l);
+            var call = num_data["numbers"][c];
+
+            // random call
+            var number = call["number"];
+            var w = Math.floor(Math.random() * call["names"].length);
+            var words = call["names"][w];
+
+            // put it on screen
+
+            var html = "<"
+
+            console.log(c + ": " + number + ", " + words);
+
+            // remove the entry
+            num_data["numbers"].splice(c, 1);
+
+        } else {
+            // done
+        }
 
     }
 

@@ -1,0 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Frijole|Peralta);
+
+body {
+    color: #fff;
+    background-color: black;
+}
+
+#call {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#call p {
+    padding: 0;
+    margin: 0;
+}
+
+#call .number {
+    font-family: Peralta;
+    font-size: 15em;
+    text-align: center;
+}
+
+#call .call {
+    font-family: Frijole;
+    font-size: 5em;
+    text-align: center;
+}

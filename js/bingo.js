@@ -1,5 +1,5 @@
 var num_data = "";
-var timer = 500;
+var timer = 5000;
 
 $(function() {
 
@@ -15,7 +15,7 @@ $(function() {
 
     function makeCall() {
 
-        console.log(num_data["numbers"].length);
+        // console.log(num_data["numbers"].length);
 
         var l = num_data["numbers"].length;
 
@@ -32,9 +32,14 @@ $(function() {
 
             // put it on screen
 
-            var html = "<"
+            var html = "<p class=\"number\">"+number+"</p>"+
+                        "<p class=\"call\">"+words+"</p>";
+            $("#call").fadeOut(function() {
+                $(this).empty().append(html).fadeIn();
 
-            console.log(c + ": " + number + ", " + words);
+            });
+
+            // console.log(c + ": " + number + ", " + words);
 
             // remove the entry
             num_data["numbers"].splice(c, 1);

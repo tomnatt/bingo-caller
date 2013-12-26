@@ -46,6 +46,11 @@ $(function() {
 
         } else {
             // done
+            var html = "<p class=\"number\"></p>"+
+                        "<p class=\"call\">All done!</p>";
+            $("#call").fadeOut(function() {
+                $(this).empty().append(html).fadeIn();
+            });
         }
 
     }

@@ -1,5 +1,6 @@
 var num_data = "";
 var timer = 5000;
+var intervalId = -1;
 
 $(function() {
 
@@ -9,9 +10,30 @@ $(function() {
         num_data = data;
 
         // make the calls
-        setInterval(function() { makeCall() }, timer);
+        intervalId = setInterval(function() { makeCall() }, timer);
+
+        // pause on space (code 32)
+        $('body').keyup(function(e) {
+           if(e.keyCode == 32){
+               pauseCall();
+           }
+        });
 
     });
+
+    function pauseCall() {
+
+        // -1 means stopped
+        if (intervalId == -1) {
+            // if stopped, start it
+            intervalId = setInterval(function() { makeCall() }, timer);
+        } else {
+            // if going, stop it
+            clearInterval(intervalId);
+            intervalId = -1;
+        }
+
+    }
 
     function makeCall() {
 
